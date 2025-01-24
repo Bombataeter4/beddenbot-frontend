@@ -43,3 +43,4 @@ function appendMessage(sender, message) {
     chatOutput.appendChild(messageElement);
     chatOutput.scrollTop = chatOutput.scrollHeight;
 }
+
