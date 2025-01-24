@@ -1,39 +1,45 @@
 
-const apiUrl = "https://beddenbot-backend.onrender.com/chat"; // Render backend URL
-
 async function fetchResponse(userMessage) {
-    const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ message: userMessage })
-    });
+    const apiUrl = "https://beddenbot-backend.onrender.com/chat";
 
-    if (!response.ok) {
-        console.error("Error:", response.statusText);
-        return "Sorry, ik kon geen antwoord vinden.";
+    try {
+        const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ message: userMessage }),
+        });
+
+        if (!response.ok) {
+            throw new Error("Fout bij het ophalen van gegevens.");
+        }
+
+        const data = await response.json();
+        return data.response || "Er is een probleem met het verwerken van je vraag.";
+    } catch (error) {
+        console.error(error);
+        return "Sorry, de bot is momenteel niet beschikbaar.";
     }
-
-    const data = await response.json();
-    return data.response || "Sorry, ik heb daar geen antwoord op.";
 }
 
 document.getElementById("send-btn").addEventListener("click", async () => {
-    const userInput = document.getElementById("user-input").value;
+    const userInput = document.getElementById("user-input").value.trim();
     if (!userInput) return;
 
-    appendMessage("Jij", userInput);
+    appendMessage("user", userInput);
+
     const botResponse = await fetchResponse(userInput);
-    appendMessage("BeddenBot", botResponse);
+    appendMessage("bot", botResponse);
+
     document.getElementById("user-input").value = "";
 });
 
 function appendMessage(sender, message) {
     const chatOutput = document.getElementById("chat-output");
     const messageElement = document.createElement("div");
-    messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+    messageElement.className = sender;
+    messageElement.textContent = message;
     chatOutput.appendChild(messageElement);
     chatOutput.scrollTop = chatOutput.scrollHeight;
 }
-
