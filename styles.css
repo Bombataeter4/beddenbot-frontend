@@ -1,0 +1,95 @@
+
+/* Algemene stijlen */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F2F2F2;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Chat-container */
+#chat-container {
+    width: 400px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+#chat-header {
+    background: #E30613;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Chat-output */
+#chat-output {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #F9F9F9;
+    border-top: 1px solid #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+/* Chat-input */
+#chat-input {
+    display: flex;
+    padding: 10px;
+    background: #FFFFFF;
+}
+
+#chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+#chat-input button {
+    background: #E30613;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#chat-input button:hover {
+    background: #C00010;
+}
+
+/* Bericht weergave */
+#chat-output div {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#chat-output div.user {
+    background: #E30613;
+    color: white;
+    align-self: flex-end;
+    text-align: right;
+}
+
+#chat-output div.bot {
+    background: #F2F2F2;
+    color: #333333;
+    align-self: flex-start;
+}
