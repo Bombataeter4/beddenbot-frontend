@@ -2,68 +2,88 @@
 /* Algemene stijlen */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #F2F2F2;
-    color: #333333;
     margin: 0;
     padding: 0;
+    background-color: #e8f4fc; /* Lichtblauwe achtergrond */
+    color: #333333;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-/* Chat-container */
-#chat-container {
-    width: 400px;
+#main-container {
+    width: 100%;
+    max-width: 500px;
     background: #FFFFFF;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* Header */
-#chat-header {
+#header {
     background: #E30613;
     color: white;
+    padding: 20px;
     text-align: center;
-    padding: 15px;
-    font-size: 1.5rem;
-    font-weight: bold;
+    border-bottom: 3px solid #C00010;
 }
 
-/* Chat-output */
+#header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+#header p {
+    margin: 5px 0 0;
+    font-size: 1rem;
+}
+
+/* Chat-container */
+#chat-container {
+    flex-grow: 1;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: #F9F9F9;
+}
+
 #chat-output {
     flex-grow: 1;
-    padding: 15px;
     overflow-y: auto;
-    background: #F9F9F9;
-    border-top: 1px solid #E0E0E0;
-    border-bottom: 1px solid #E0E0E0;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    background-color: #ffffff;
 }
 
-/* Chat-input */
 #chat-input {
     display: flex;
-    padding: 10px;
-    background: #FFFFFF;
+    align-items: center;
 }
 
 #chat-input input {
     flex: 1;
-    padding: 10px;
-    border: 1px solid #E0E0E0;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #CCCCCC;
     border-radius: 5px;
     margin-right: 10px;
-    font-size: 1rem;
 }
 
 #chat-input button {
     background: #E30613;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
@@ -74,22 +94,34 @@ body {
     background: #C00010;
 }
 
-/* Bericht weergave */
+/* Berichten */
 #chat-output div {
     margin-bottom: 10px;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
+    font-size: 0.9rem;
 }
 
 #chat-output div.user {
     background: #E30613;
     color: white;
-    align-self: flex-end;
     text-align: right;
+    align-self: flex-end;
 }
 
 #chat-output div.bot {
-    background: #F2F2F2;
+    background: #E8F4FC;
     color: #333333;
+    text-align: left;
     align-self: flex-start;
 }
+
+/* Footer */
+#footer {
+    background: #F2F2F2;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.8rem;
+    border-top: 1px solid #E0E0E0;
+}
+
